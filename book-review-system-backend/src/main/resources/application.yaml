@@ -1,0 +1,50 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: book-review-system-backend
+  datasource:
+    # 数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_book_review_system?useSSL=false&serverTimezone=UTC
+    username: root
+    password:
+  # 邮件发送配置
+  mail:
+    host:
+    port:
+    username:
+    password:
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.starttls.enable: true
+  servlet:
+    # 文件上传配置
+    multipart:
+      enabled: true
+      max-file-size: 64MB
+      max-request-size: 256MB
+# SaToken的配置
+sa-token:
+  # token名称
+  token-name: Authorization
+  # token有效期
+  timeout: 2592000
+  # 多点登录
+  is-concurrent: true
+  # 多点登录使用同一token
+  is-share: true
+  # token格式
+  token-style: simple-uuid
+  # 不打印日志
+  is-log: false
+  # 不从请求体中读取token
+  is-read-body: false
+  # 不从cookie中读取token
+  is-read-cookie: false
+  # 从请求头中读取token
+  is-read-header: true
+# mybatis plus 配置
+mybatis-plus:
+  type-aliases-package: com.example.bookmanagerbackend.entity.*
+  mapper-locations: classpath:mapper/*Mapper.xml
